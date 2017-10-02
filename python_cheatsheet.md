@@ -16,3 +16,9 @@ df = df.rename(columns={oldName1: newName1, oldName2: newName2})
 random.sample(xrange(len(mylist)), sample_size)
 ```
 
+
+## TEXT
+### remove no-arabic chars from string
+```python
+re.findall(r`[\u0600-\u06FF]+`, my_string)
+```
