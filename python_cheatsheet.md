@@ -15,6 +15,12 @@ df = df.rename(columns={oldName1: newName1, oldName2: newName2})
 ```python
 random.sample(xrange(len(mylist)), sample_size)
 ```
+### sparse groupby 
+```python
+# X is the matrix to gorupby
+for idx, group_values in itertools.groupby(enumerate(X), key = lambda x: group_key[x[0]]):
+	gb_sparse = coo_matrix(groupby_func([matrow[1] for matrow in group_values], axis = 0))
+```
 
 
 ## TEXT
