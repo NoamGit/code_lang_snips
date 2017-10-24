@@ -28,3 +28,7 @@ for idx, group_values in itertools.groupby(enumerate(X), key = lambda x: group_k
 ```python
 re.findall(r`[\u0600-\u06FF]+`, my_string)
 ```
+### translate/map characters to other characters (abcd->ABCD)
+```python
+str.translate(str.maketrans('abcd','ABCD'))
+```
