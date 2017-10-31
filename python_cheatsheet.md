@@ -9,7 +9,6 @@ df.sample(frac=1)
 df = df.rename(columns={oldName1: newName1, oldName2: newName2})
 ```
 
-
 ## NUMPY & NUMERIC PACKS
 ### sample from list or array
 ```python
@@ -22,7 +21,6 @@ for idx, group_values in itertools.groupby(enumerate(X), key = lambda x: group_k
 	gb_sparse = coo_matrix(groupby_func([matrow[1] for matrow in group_values], axis = 0))
 ```
 
-
 ## TEXT
 ### remove no-arabic chars from string
 ```python
@@ -31,4 +29,27 @@ re.findall(r`[\u0600-\u06FF]+`, my_string)
 ### translate/map characters to other characters (abcd->ABCD)
 ```python
 str.translate(str.maketrans('abcd','ABCD'))
+```
+
+## SYNTATIC SUGAR
+### decorators
+```python
+def timeit(method):
+
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+
+        print '%r (%r, %r) %2.2f sec' % \
+              (method.__name__, args, kw, te-ts)
+        return result
+
+    return timed
+
+class Foo(object):
+
+    @timeit
+    def foo(self, a=2, b=3):
+        time.sleep(0.2)
 ```
