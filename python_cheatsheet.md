@@ -53,3 +53,8 @@ class Foo(object):
     def foo(self, a=2, b=3):
         time.sleep(0.2)
 ```
+
+### list comprehension (only with if)
+```python
+[y for y in a if y not in b]
+```
