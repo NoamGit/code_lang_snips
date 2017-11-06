@@ -8,6 +8,19 @@ df.sample(frac=1)
 ```python
 df = df.rename(columns={oldName1: newName1, oldName2: newName2})
 ```
+### different groupby on columns
+ ```python
+f = {'Field1':'sum','Field2':['max','mean']}
+grouped = df.groupby('mykey').agg(f)
+```
+### multi-index loc
+ ```python
+df.xs('index_value', level='index_name', axis=1)
+```
+### *ELEGANT* - Getting the Row which has the max value in groups with no groupby
+ ```python
+df.sort_values('value_col', ascending=False).drop_duplicates(id_col)
+```
 
 ## NUMPY & NUMERIC PACKS
 ### sample from list or array
@@ -21,6 +34,7 @@ for idx, group_values in itertools.groupby(enumerate(X), key = lambda x: group_k
 	gb_sparse = coo_matrix(groupby_func([matrow[1] for matrow in group_values], axis = 0))
 ```
 
+
 ## TEXT
 ### remove no-arabic chars from string
 ```python
@@ -29,32 +43,4 @@ re.findall(r`[\u0600-\u06FF]+`, my_string)
 ### translate/map characters to other characters (abcd->ABCD)
 ```python
 str.translate(str.maketrans('abcd','ABCD'))
-```
-
-## SYNTATIC SUGAR
-### decorators
-```python
-def timeit(method):
-
-    def timed(*args, **kw):
-        ts = time.time()
-        result = method(*args, **kw)
-        te = time.time()
-
-        print '%r (%r, %r) %2.2f sec' % \
-              (method.__name__, args, kw, te-ts)
-        return result
-
-    return timed
-
-class Foo(object):
-
-    @timeit
-    def foo(self, a=2, b=3):
-        time.sleep(0.2)
-```
-
-### list comprehension (only with if)
-```python
-[y for y in a if y not in b]
 ```
