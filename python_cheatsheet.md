@@ -44,3 +44,11 @@ re.findall(r`[\u0600-\u06FF]+`, my_string)
 ```python
 str.translate(str.maketrans('abcd','ABCD'))
 ```
+
+## MISC
+### unpacking operator *
+in this example we turn a list of sets to 1 giant set in a very efficient way using the unpacking operator *
+```python
+foo = set()
+foo.union(*list_of_sets) # == foo.union(list_of_sets[0],list_of_sets[1],...)
+```
