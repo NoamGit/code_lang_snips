@@ -22,6 +22,18 @@ df.xs('index_value', level='index_name', axis=1)
 df.sort_values('value_col', ascending=False).drop_duplicates(id_col)
 ```
 
+### Multiindex slicing of dataframe
+```python
+def filter_by(df, constraints):
+    df_sorted = df.sort_index(level= df.index.names, ascending=[1, 0])
+    indexer = [constraints[name] if name in constraints else slice(None)
+               for name in df_sorted.index.names]
+    return df_sorted.loc[tuple(indexer)] if len(df_sorted.shape) == 1 else df_sorted.loc[tuple(indexer),]
+
+pd.Series.filter_by = filter_by
+pd.DataFrame.filter_by = filter_by
+```
+
 ## NUMPY & NUMERIC PACKS
 ### sample from list or array
 ```python
