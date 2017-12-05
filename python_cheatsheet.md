@@ -4,6 +4,12 @@
 ```python
 df.sample(frac=1)
 ```
+
+### swap columns
+```python
+df = df.reindex(columns={col2,col1,col3})
+```
+
 ### renaming columns
 ```python
 df = df.rename(columns={oldName1: newName1, oldName2: newName2})
