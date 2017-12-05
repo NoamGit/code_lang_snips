@@ -9,7 +9,10 @@ df.sample(frac=1)
 ```python
 df = df.reindex(columns={col2,col1,col3})
 ```
-
+### open list of iterabels to unified list
+```python
+list(itertools.chain.from_iterable(list_of_iterables))
+```
 ### renaming columns
 ```python
 df = df.rename(columns={oldName1: newName1, oldName2: newName2})
