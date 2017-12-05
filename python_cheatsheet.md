@@ -44,6 +44,10 @@ pd.DataFrame.filter_by = filter_by
 ```
 
 ## NUMPY & NUMERIC PACKS
+### concate matrix n times
+```python 
+np.tile(m, (n,1))
+```
 ### sample from list or array
 ```python
 random.sample(xrange(len(mylist)), sample_size)
