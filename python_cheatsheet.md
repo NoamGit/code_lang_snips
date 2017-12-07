@@ -13,10 +13,6 @@ result = pd.merge(left.reset_index(), right.reset_index(),
 ```python
 df = df.reindex(columns={col2,col1,col3})
 ```
-### open list of iterabels to unified list
-```python
-list(itertools.chain.from_iterable(list_of_iterables))
-```
 ### renaming columns
 ```python
 df = df.rename(columns={oldName1: newName1, oldName2: newName2})
@@ -80,4 +76,8 @@ in this example we turn a list of sets to 1 giant set in a very efficient way us
 ```python
 foo = set()
 foo.union(*list_of_sets) # == foo.union(list_of_sets[0],list_of_sets[1],...)
+```
+### open list of iterabels to unified list
+```python
+list(itertools.chain.from_iterable(list_of_iterables))
 ```
