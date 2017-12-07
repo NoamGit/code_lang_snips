@@ -4,7 +4,11 @@
 ```python
 df.sample(frac=1)
 ```
-
+### join on multiindex
+```python
+result = pd.merge(left.reset_index(), right.reset_index(),
+	on=keys_to_merge_on, how='inner')
+```
 ### swap columns
 ```python
 df = df.reindex(columns={col2,col1,col3})
