@@ -17,4 +17,11 @@ col_name varchar(10) default 'def_value' not null check( col_name in ('enum_val_
 select utl_raw.cast_to_varchar2(dbms_lob.substr(BLOB_FIELD)) from TABLE_WITH_BLOB where ID = '<row id>';
 ```
 
-### UNREGISTERED
+## TABLE OPERATIONS
+### concat text in cols
+```sql
+CONCAT(COL_NAME1, COL_NAME2)
+```
+
+### MISC
+
