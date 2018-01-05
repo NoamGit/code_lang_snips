@@ -7,6 +7,11 @@ $ rm -r ~/.local/share/gnome-software
 ### UPDATE PYCHARM
 [stackoverflow](https://stackoverflow.com/questions/23255033/update-pycharm-on-linux)
 
+### [install apps from tar](https://www.jetbrains.com/help/idea/install-and-set-up-intellij-idea.html)
+```sh
+sudo tar xf -*.tar.gz -C /opt/
+```
+
 ## Common Issues
 
 ### LOGIN LOOP
